@@ -16,7 +16,7 @@ const corsOptions = {
 app.use(cors(corsOptions));
 
 // Handle preflight requests explicitly
-app.options('*', cors(corsOptions));
+app.options('/{*path}', cors(corsOptions)); //changed from '*' to '/{*path}' as Express 5 doesn't use * as wildcard
 app.use(bodyParser.json());
 
 app.use("/api", authRoutes);
