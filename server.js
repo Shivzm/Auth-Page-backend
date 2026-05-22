@@ -20,7 +20,7 @@ app.options('/{*path}', cors(corsOptions)); //changed from '*' to '/{*path}' as 
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
-    res.json({ status: "Server is running" });
+    res.send("<h1>Server is Running</h1>");
 });
 
 app.use("/api", authRoutes);
