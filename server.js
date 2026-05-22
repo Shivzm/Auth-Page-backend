@@ -6,6 +6,7 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
+//Ensuring the cors() middleware runs before any other logic and explicitly handling the OPTIONS method.
 const corsOptions = {
   origin: 'https://auth-page-frontend.web.app', 
   methods: ['GET', 'POST', 'OPTIONS'],
