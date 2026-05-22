@@ -19,6 +19,10 @@ app.use(cors(corsOptions));
 app.options('/{*path}', cors(corsOptions)); //changed from '*' to '/{*path}' as Express 5 doesn't use * as wildcard
 app.use(bodyParser.json());
 
+app.get("/", (req, res) => {
+    res.json({ status: "Server is running" });
+});
+
 app.use("/api", authRoutes);
 
 module.exports = app; //changed from app.listen(5000, () => { console.log("Server Running on Port 5000");}); to the module method as Vercel is serverless and it doesnt work on the vercel platform.
