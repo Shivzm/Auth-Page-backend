@@ -21,6 +21,4 @@ app.use(bodyParser.json());
 
 app.use("/api", authRoutes);
 
-app.listen(5000, () => {
-    console.log("Server Running on Port 5000");
-});
+module.exports = app; //changed from app.listen(5000, () => { console.log("Server Running on Port 5000");}); to the module method as Vercel is serverless and it doesnt work on the vercel platform.
