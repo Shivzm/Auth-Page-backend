@@ -6,7 +6,16 @@ const authRoutes = require("./routes/authRoutes");
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+  origin: 'https://auth-page-frontend.web.app', 
+  methods: ['GET', 'POST', 'OPTIONS'],
+  allowedHeaders: ['Content-Type'],
+  optionsSuccessStatus: 200 
+};
+app.use(cors(corsOptions));
+
+// Handle preflight requests explicitly
+app.options('*', cors(corsOptions));
 app.use(bodyParser.json());
 
 app.use("/api", authRoutes);
